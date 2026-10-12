@@ -1,37 +1,38 @@
 package generics;
 
-public class Container <T> {
+public class Container<T> {
     private T field;
-    // the constructor that takes a T value
-    public Container(T field){
+
+    public Container(T field) {
         this.field = field;
     }
 
-    // The method that returns the T
-    T getValue(){
+    public T getValue() {
         return field;
     }
-    void getInstanceType(T field){
-        System.out.println(field.getClass());
+
+    public void getInstanceType() {
+        if (field != null) {
+            System.out.println(field.getClass().getSimpleName());
+        } else {
+            System.out.println("null");
+        }
     }
 
-    // The main method
     public static void main(String[] args) {
         Container<String> c1 = new Container<>("MUBAS");
         Container<Integer> c2 = new Container<>(21);
         Container<Boolean> c3 = new Container<>(true);
+        Container<Double> c4 = new Container<>(3.14);
 
-        //Printing the value using the gtValue method in the class
         System.out.println(c1.getValue());
         System.out.println(c2.getValue());
         System.out.println(c3.getValue());
+        System.out.println(c4.getValue());
 
-        //Printing the value types
-        c1.getInstanceType("Mubas");
-        c2.getInstanceType(21);
-        c3.getInstanceType(false);
-
-
+        c1.getInstanceType();
+        c2.getInstanceType();
+        c3.getInstanceType();
+        c4.getInstanceType();
     }
-
 }
